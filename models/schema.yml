@@ -1,0 +1,17 @@
+
+version: 2
+
+models:
+    - name: annotations
+      description: "Clean annotation data for the ML models"
+      columns:
+      - name: annotation_type
+        description: "Type of the annotation"
+
+sources:
+  - name: public
+    tables:
+      - name: task
+      - name: task_completion
+      - name: tasks_annotationdraft
+      - name: project
