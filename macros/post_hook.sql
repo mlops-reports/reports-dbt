@@ -1,7 +1,7 @@
 {% macro grant_schema_privileges(
         schema
     ) %}
-    {% set role_name = 'read_only_{{ schema }}' %}
+    {% set role_name = 'read_only_all' %}
     {% if target.name == 'prod' %}
         GRANT usage
         ON schema {{ schema }} TO GROUP {{ role_name }}
@@ -12,7 +12,7 @@
         schema,
         table
     ) %}
-    {% set role_name = 'read_only_{{ schema }}' %}
+    {% set role_name = 'read_only_all' %}
     {% if target.name == 'prod' %}
         GRANT
     SELECT
@@ -24,7 +24,7 @@
         schema,
         table
     ) %}
-    {% set role_name = 'read_only_{{ schema }}' %}
+    {% set role_name = 'read_only_all' %}
     {% if target.name == 'prod' %}
         GRANT usage
         ON schema {{ schema }} TO GROUP {{ role_name }};
