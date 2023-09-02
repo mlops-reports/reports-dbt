@@ -1,3 +1,4 @@
+source venv/bin/activate
 source .env
 
 export DBT_HOST=$DBT_HOST
@@ -7,3 +8,5 @@ export DBT_DB_NAME=$DBT_DB_NAME
 
 dbt run --select stg_choices+ --target prod 
 dbt run --select stg_labels+ --target prod 
+
+deactivate
