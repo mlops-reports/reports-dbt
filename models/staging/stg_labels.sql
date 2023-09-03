@@ -6,7 +6,7 @@
     tags = ["annotations"]
 ) }}
 
-WITH annotations AS (
+WITH labels AS (
 SELECT
 	id,
 	jsonb_array_elements("result")::json AS annotation_data,
@@ -32,7 +32,7 @@ SELECT
 	task_id,
 	completed_by_id
 FROM
-	annotations
+	labels
 WHERE 
     annotation_data ->> 'type' = 'labels'
 

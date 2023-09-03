@@ -9,9 +9,14 @@ models:
         description: "Type of the annotation"
 
 sources:
-  - name: public
+  - name: label_studio
+    schema: public
     tables:
       - name: task
       - name: task_completion
       - name: tasks_annotationdraft
       - name: project
+  - name: raw_data
+    schema: raw_data
+    tables:
+      - name: reports

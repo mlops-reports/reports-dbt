@@ -6,7 +6,7 @@
     tags = ["annotations"]
 ) }}
 
-WITH annotations AS (
+WITH choices AS (
 
     SELECT
         id,
@@ -15,7 +15,10 @@ WITH annotations AS (
         task_id,
         completed_by_id
     FROM
-        task_completion tc
+        {{ source(
+            'label_studio',
+            'task_completion'
+        ) }}
 ),
 with_text AS (
     SELECT
@@ -35,7 +38,7 @@ with_text AS (
         task_id,
         completed_by_id
     FROM
-        annotations
+        choices
     WHERE
         annotation_data ->> 'type' = 'choices'
 )

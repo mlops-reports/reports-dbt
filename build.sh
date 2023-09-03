@@ -8,5 +8,6 @@ export DBT_DB_NAME=$DBT_DB_NAME
 
 dbt run --select stg_choices+ --target prod 
 dbt run --select stg_labels+ --target prod 
+dbt run --select stg_reports+ --target prod 
 
 deactivate
