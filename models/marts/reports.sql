@@ -13,7 +13,6 @@
 ) }}
 
 SELECT
-    data ->> 'report_id' as report_id,
     *
 FROM
     {{ ref('stg_reports') }}
