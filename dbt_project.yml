@@ -38,7 +38,8 @@ models:
     staging:
       +materialized: view
       +on_schema_change: "sync_all_columns"
+      +incremental_strategy: "merge"
     marts:
       +materialized: table
       +on_schema_change: "sync_all_columns"
-  
+      +incremental_strategy: "merge"
