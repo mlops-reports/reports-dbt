@@ -34,7 +34,7 @@ SELECT
     patient_no,
     protocol_no,
     report_original,
-    NULL as report_prompted,
+    '' as report_prompted,
     report_length,
     patient_report_count
 FROM
