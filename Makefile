@@ -6,10 +6,12 @@ DBT := pip
 
 # Installs the dependencies
 install_dependencies:
-	rm -rf .venv;
 	$(PYTHON) -m venv venv;
 	$(PIP) install -r requirements.txt;
 	$(DBT) deps;
+
+remove_environment:
+	rm -rf .venv;
 
 # Activates poetry environment
 activate_environment:
