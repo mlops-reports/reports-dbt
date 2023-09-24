@@ -10,6 +10,7 @@ install_dependencies:
 	$(PIP) install -r requirements.txt;
 	$(DBT) deps;
 
+# Removes the existing environment
 remove_environment:
 	rm -rf .venv;
 
