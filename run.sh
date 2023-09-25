@@ -11,7 +11,7 @@ export DBT_DB_NAME=$DBT_DB_NAME
 if [ $MODEL == "all" ]
 then
     dbt run --select tag:annotation_input+ --target prod 
-    dbt run --select tag:annotation_output+ --threads 1 --target prod 
+    dbt run --select tag:annotation_output+ --threads 1 --full-refresh --target prod 
 elif [ $MODEL == "docs" ]
 then
     dbt docs generate

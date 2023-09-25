@@ -2,7 +2,7 @@
 {%- set schema_name = "annotation" -%}
 {{ config(
     alias = table_name,
-    materialized = 'incremental',
+    materialized = 'table',
     unique_key = 'report_id',
     schema = schema_name,
     post_hook = grant_schema_table_privileges(
