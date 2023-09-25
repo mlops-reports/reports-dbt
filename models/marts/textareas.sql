@@ -1,4 +1,4 @@
-{%- set table_name = "labels" -%}
+{%- set table_name = "textareas" -%}
 {%- set schema_name = "annotation" -%}
 {{ config(
     alias = table_name,
@@ -12,11 +12,11 @@
     tags = [schema_name]
 ) }}
 
-WITH labels AS (
+WITH textareas AS (
 
     SELECT
         annotation_id,
-        annotation_value ->> 'text' AS label,
+        annotation_value ->> 'text' AS text,
         annotation_type,
         from_name,
         completion_id,
@@ -26,9 +26,9 @@ WITH labels AS (
     FROM
         {{ ref('stg_task_completion') }}
     WHERE
-        annotation_type = 'labels'
+        annotation_type = 'textarea'
 )
 SELECT
     *
 FROM
-    labels
+    textareas

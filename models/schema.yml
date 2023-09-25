@@ -13,8 +13,7 @@ sources:
     tables:
       - name: task
       - name: task_completion
-      - name: tasks_annotationdraft
-      - name: project
+      # - name: project
   - name: raw_data
     schema: raw_data
     tables:

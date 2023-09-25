@@ -5,7 +5,7 @@
     unique_key = 'report_id',
     schema = schema_name,
     alias = table_name,
-    tags = ["annotations"]
+    tags = ["annotations", "annotation_input"]
 ) }}
 
 WITH reports AS (

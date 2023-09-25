@@ -1,21 +1,34 @@
 # Variables
 POETRY := poetry
-PYTHON := python3
 PIP := pip
-DBT := pip
+DBT := dbt
+MAKE := make
+BASH := bash
+
+PYTHON_PATH := $(shell which python3)
 
 # Installs the dependencies
 install_dependencies:
-	$(PYTHON) -m venv venv;
-	$(PIP) install -r requirements.txt;
-	$(DBT) deps;
+	$(MAKE) remove_environment;
+	$(POETRY) env use $(PYTHON_PATH);
+	$(POETRY) install;
+	$(MAKE) activate_environment;
+	$(DBT) deps
+
+# Serves dbt documentation
+docs:
+	$(BASH) run.sh docs
 
 # Removes the existing environment
 remove_environment:
-	rm -rf .venv;
+	rm -rf .venv
 
 # Activates poetry environment
 activate_environment:
-	$(PIP) source/venv/bin/activate
+	$(POETRY) shell
+
+# Runs all the models
+run_all_models:
+	$(BASH) run.sh all
 
 

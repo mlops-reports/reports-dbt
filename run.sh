@@ -1,4 +1,4 @@
-source venv/bin/activate
+source .venv/bin/activate
 source .env
 
 MODEL=${1:-all}
@@ -10,10 +10,12 @@ export DBT_DB_NAME=$DBT_DB_NAME
 
 if [ $MODEL == "all" ]
 then
-    dbt run --select tasks+ --target prod 
-    dbt run --select stg_choices+ --target prod 
-    dbt run --select stg_labels+ --target prod 
-    dbt run --select stg_reports+ --target prod 
+    dbt run --select tag:annotation_input+ --target prod 
+    dbt run --select tag:annotation_output+ --threads 1 --target prod 
+elif [ $MODEL == "docs" ]
+then
+    dbt docs generate
+    dbt docs serve
 else
     dbt run --select $MODEL --target prod 
 fi

@@ -9,7 +9,7 @@
         schema_name,
         table_name
     ),
-    tags = [schema_name]
+    tags = [schema_name, "annotation_output"]
 ) }}
 
 WITH tasks AS (
