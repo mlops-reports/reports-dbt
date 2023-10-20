@@ -1,4 +1,4 @@
-source venv/bin/activate
+source .venv/bin/activate
 source .env
 
 MODEL=${1:-all}
