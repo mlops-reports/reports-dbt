@@ -24,12 +24,19 @@
         schema,
         table
     ) %}
-    {% set role_name = 'read_only_all' %}
     {% if target.name == 'prod' %}
-        GRANT usage
-        ON schema {{ schema }} TO GROUP {{ role_name }};
+GRANT usage
+        ON schema {{ schema }} TO GROUP read_write_all;
+GRANT
+    INSERT,
+    UPDATE,
+    SELECT,
+    DELETE
+        ON {{ schema }}.{{ table }} TO GROUP read_write_all;
+GRANT usage
+        ON schema {{ schema }} TO GROUP read_only_all;
 GRANT
     SELECT
-        ON {{ schema }}.{{ table }} TO GROUP {{ role_name }}
+        ON {{ schema }}.{{ table }} TO GROUP read_only_all;
     {% endif %}
 {% endmacro %}
