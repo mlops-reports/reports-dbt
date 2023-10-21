@@ -3,7 +3,7 @@ CREATE USER oytun_demirbilek WITH login password 'change_me_2413'
 nosuperuser inherit nocreatedb nocreaterole noreplication valid until 'infinity' 
 IN GROUP read_only_all;
 
-ALTER USER hamza_guzel WITH password '1992h1649';
+ALTER USER maintenance WITH password 'MsD72hpjhWFvYa';
 
 -- create a new role
 -- CREATE ROLE read_only_all;
