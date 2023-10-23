@@ -1,11 +1,11 @@
 version: 2
 
 models:
-    - name: annotations
-      description: "Clean annotation data for the ML models"
-      columns:
-      - name: annotation_type
-        description: "Type of the annotation"
+    - name: report_classifications
+      description: "Report classifications"
+      # columns:
+      # - name: annotation_type
+      #   description: "Type of the annotation"
 
 sources:
   - name: label_studio
