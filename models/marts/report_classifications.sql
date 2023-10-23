@@ -17,9 +17,9 @@ WITH report_classifications AS (
     SELECT
         c.annotation_id,
         c.choice,
+        c.annotation_value_flag,
         t.data ->> 'text' as translated_text,
         c.from_name,
-        c.completion_id,
         c.project_id,
         c.task_id
     FROM
