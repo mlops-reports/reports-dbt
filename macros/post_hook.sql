@@ -26,13 +26,13 @@
     ) %}
     {% if target.name == 'prod' %}
 GRANT usage
-        ON schema {{ schema }} TO GROUP read_write_all;
+        ON schema {{ schema }} TO GROUP maintenance;
 GRANT
     INSERT,
     UPDATE,
     SELECT,
     DELETE
-        ON {{ schema }}.{{ table }} TO GROUP read_write_all;
+        ON {{ schema }}.{{ table }} TO GROUP maintenance;
 GRANT usage
         ON schema {{ schema }} TO GROUP read_only_all;
 GRANT
