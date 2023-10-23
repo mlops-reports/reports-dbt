@@ -19,10 +19,8 @@ WITH choices AS (
         annotation_value ->> 'choices' AS choice,
         annotation_type,
         from_name,
-        completion_id,
         project_id,
-        task_id,
-        completed_by_id
+        task_id
     FROM
         {{ ref('stg_task_completion') }}
     WHERE
