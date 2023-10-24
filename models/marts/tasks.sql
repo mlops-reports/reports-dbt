@@ -15,7 +15,8 @@
 WITH tasks AS (
 
     SELECT
-        *
+        *,
+        ('https://label.drgoktugasci.com/projects/' || project_id || '/data?task=' || id) as report_link
     FROM
         {{ source(
             'label_studio',
