@@ -31,11 +31,11 @@ WITH choices AS (
 SELECT
     *,
     CASE
-        WHEN choice = '["Exclude"]' THEN 0 :: INT
-        WHEN choice = '["Emergency"]' THEN 1 :: INT
-        WHEN choice = '["Normal"]' THEN 2 :: INT
-        WHEN choice = '["Non Emergency [No Doctor]"]' THEN 3 :: INT
-        WHEN choice = '["Non Emergency [Doctor]"]' THEN 4 :: INT
+        WHEN choice = '["Exclude"]' THEN NULL :: INT
+        WHEN choice = '["Emergency"]' THEN 0 :: INT
+        WHEN choice = '["Normal"]' THEN 1 :: INT
+        WHEN choice = '["Non Emergency [No Doctor]"]' THEN 2 :: INT
+        WHEN choice = '["Non Emergency [Doctor]"]' THEN 3 :: INT
         ELSE NULL
     END annotation_value_flag
 FROM
