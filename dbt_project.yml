@@ -43,3 +43,17 @@ models:
       +materialized: table
       +on_schema_change: "sync_all_columns"
       +incremental_strategy: "merge"
+
+
+snapshots:
+  reports_data:
+    marts:
+      report_classifications_snapshot:
+        +target_schema: "snapshot"
+        +unique_key: 'annotation_id'
+        +strategy: 'check'
+        +check_cols: ['choice', 'annotation_value_flag']
+        
+        
+        
+        

@@ -26,8 +26,10 @@ WITH report_classifications AS (
         {{ ref('choices') }} as c
     LEFT JOIN {{ ref('tasks') }} as t
     ON c.task_id = t.id
+    ORDER BY task_id ASC
 )
 SELECT
     *
 FROM
     report_classifications
+

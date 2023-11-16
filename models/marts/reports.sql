@@ -11,8 +11,8 @@
     ),
     tags = [schema_name]
 ) }}
-
 SELECT
     *
 FROM
     {{ ref('stg_reports') }}
+
