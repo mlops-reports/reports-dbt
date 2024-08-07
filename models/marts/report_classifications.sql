@@ -19,6 +19,8 @@ WITH report_classifications AS (
         c.choice,
         c.annotation_value_flag,
         t.data ->> 'text' as translated_text,
+        t.data ->> 'patient_no' as patient_no,
+        t.data ->> 'report_length' as report_length,
         c.from_name,
         c.project_id,
         c.task_id
