@@ -1,17 +1,50 @@
-## Build the environment
+## Project Setup and Usage Guide
+
+### Environment Setup
 ```
-make remove_environment ; make install_dependencies
+# Remove existing environment and install dependencies
+make remove_environment
+make install_dependencies
 ```
 
-## Environment variables
+This will:
+1. Remove any existing virtual environment
+2. Create a new Poetry environment using Python 3
+3. Install all project dependencies
+4. Activate the environment
+5. Install dbt dependencies
+
+### Required Environment Variables
+Set the following environment variables before running the project:
 ```
-DBT_HOST=<DBT_HOST>
-DBT_USERNAME=<DBT_USERNAME>
-DBT_PASSWORD=<DBT_PASSWORD>
-DBT_DB_NAME=<DBT_DB_NAME>
+DBT_HOST=<database_host>
+DBT_USERNAME=<database_username>
+DBT_PASSWORD=<database_password>
+DBT_DB_NAME=<database_name>
 ```
 
-## Example model run
+## Running Models
+### Run Specific Models by Tag
 ```
 bash run.sh 'tag:annotation_output+ --threads 1'
 ```
+
+### Run All Models
+```
+make run_all_models
+```
+
+### Additional Commands
+```
+# Activate the Poetry environment
+make activate_environment
+
+# Remove the virtual environment
+make remove_environment
+```
+
+## Project Structure
+The project uses:
+* Poetry for dependency management
+* dbt for data transformation
+* Makefile for common operations
